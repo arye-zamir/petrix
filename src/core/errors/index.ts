@@ -1,0 +1,1 @@
+export { PetrixRequestError } from "./classes";
