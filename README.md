@@ -1,6 +1,6 @@
 # Petrix
 
-Ultra-lightweight, extensible HTTP client. More details coming soon.
+Ultra-lightweight (1.5k gzipped, 64.3 kB unpacked), 0 dependencies, extensible HTTP client. More details coming soon.
 
 ## Installation
 
@@ -12,11 +12,38 @@ pnpm add petrix
 yarn add petrix
 ```
 
+## CDN
+
+You can include Petrix via a CDN:
+
+#### jsDelivr
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/petrix/dist/petrix.umd.min.js" />
+```
+
+#### unpkg
+
+```html
+<script src="https://unpkg.com/petrix/dist/petrix.umd.min.js" />
+```
+
+#### usage with CDN
+
+```html
+<script>
+  const petrix = new Petrix.createClient()
+  petrix.get('https://...').then((res) => {
+    // use res.data
+  })
+</script>
+```
+
 ## Quick Start
 
 ```typescript
-import Petrix from "petrix";
+import { createClient } from 'petrix' // 3.8k (gzipped: 1.5k)
 
-const client = new Petrix();
-const data = await client.get("https://api.example.com/data");
+const petrix = createClient()
+const { data } = await petrix.get<ResponseData>('https://...')
 ```
